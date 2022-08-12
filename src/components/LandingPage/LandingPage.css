@@ -2,3 +2,21 @@
   min-height: calc(100vh - 60px);
   padding-top: 60px;
 }
+
+.journeyStyle{
+  width: 300px;
+  background-color: blueviolet;
+  border-radius: 30px;
+  position: fixed;
+  left: 50%;
+  top: -100%;
+  transform: translate(-50%, -50%);
+  transition: top 600ms;
+  pointer-events: none;
+}
+
+.journeyStyle_show{
+  top: 50%;
+  transition: top 600ms;
+  pointer-events: all;
+}

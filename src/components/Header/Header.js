@@ -10,6 +10,10 @@ const Header = () => {
     showSignForm ? setShowSignForm(false) : setShowSignForm(true);
   }
 
+  const closeFrame = () => {
+    showSignForm ? setShowSignForm(false) : setShowSignForm(true);
+  }
+
   return (
     <>
       <div className='w-100 text-center bg-danger header-style d-flex justify-content-between align-items-center px-5'>
@@ -20,6 +24,7 @@ const Header = () => {
         <button onClick={handleClick}>Sign in / Sign Up</button>
       </div>
       <div className={`signForm-style ${showSignForm ? 'signForm_active' : null}`}>
+        <button onClick={closeFrame} className="ms-auto">X</button>
         <SignForm />
       </div>
     </>
