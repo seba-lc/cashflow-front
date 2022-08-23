@@ -33,6 +33,10 @@ const LandingPage = () => {
           <input type="date" className='w-100 mb-3' />
           <input type="number" className='w-100 mb-3' placeholder='Total del dia' />
           <textarea name="" id="" cols="30" rows="10" placeholder='Comentario..' className='w-100 mb-3'></textarea>
+          <label htmlFor="TFN">TFN</label>
+          <input type="radio" id='TFN' name='jobType'/>
+          <label htmlFor="ABN">ABN</label>
+          <input type="radio" id='ABN' name='jobType' className='mb-3'/>
           <button type='submit' className='w-100'>Submit</button>
         </form>
       </div>
