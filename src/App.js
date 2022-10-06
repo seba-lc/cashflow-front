@@ -4,16 +4,19 @@ import Home from './pages/Home';
 import Landing from './pages/Landing';
 import Settings from './pages/Settings';
 import Register from './pages/Register';
+import UserState from './context/Users/UserState';
 
 function App() {
   return (
     <>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/landing' element={<Landing />} />
-        <Route path='/settings' element={<Settings />} />
-        <Route path='/register' element={<Register />} />
-      </Routes>
+      <UserState>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/landing' element={<Landing />} />
+          <Route path='/settings' element={<Settings />} />
+          <Route path='/register' element={<Register />} />
+        </Routes>
+      </UserState>
     </>
   );
 }

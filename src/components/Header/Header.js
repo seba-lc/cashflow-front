@@ -2,17 +2,40 @@ import './Header.css';
 import {Link} from 'react-router-dom';
 import SignForm from '../SignForm/SignForm';
 import { useState } from 'react';
+import { useContext } from 'react';
+import UserContext from '../../context/Users/UserContext';
+import { useEffect } from 'react';
 
 const Header = () => {
   const [showSignForm, setShowSignForm] = useState(false);
 
+  const { auth, getAuth, logout } = useContext(UserContext);
+
   const handleClick = () => {
-    showSignForm ? setShowSignForm(false) : setShowSignForm(true);
+    if(auth){
+      logout();
+    }else{
+      showSignForm ? setShowSignForm(false) : setShowSignForm(true);
+    }
   }
 
   const closeFrame = () => {
     showSignForm ? setShowSignForm(false) : setShowSignForm(true);
   }
+
+  useEffect(() => {
+    if(auth){
+      console.log('Logged User');
+    }else{
+      console.log('Unlogged User');
+    }
+  }, [auth])
+
+  useEffect(() => {
+    if(!auth){
+      getAuth();
+    }
+  }, [])
 
   return (
     <>
@@ -21,7 +44,11 @@ const Header = () => {
         <Link to='/'>Home</Link>
         <Link to='/landing'>Landing</Link>
         <Link to='/settings'>Settings</Link>
-        <button onClick={handleClick}>Sign in / Sign Up</button>
+        <button onClick={handleClick}>
+          {
+            auth ? 'Logout' : 'Sign in / Sign Up'
+          }
+        </button>
       </div>
       <div className={`signForm-style ${showSignForm ? 'signForm_active' : null}`}>
         <button onClick={closeFrame} className="ms-auto">X</button>
