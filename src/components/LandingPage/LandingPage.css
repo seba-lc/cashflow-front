@@ -20,3 +20,10 @@
   transition: top 600ms;
   pointer-events: all;
 }
+
+.business-frame{
+  border: solid black 1px;
+  border-radius: 20px;
+  background-color: bisque;
+  cursor: pointer;
+}

@@ -24,14 +24,6 @@ const Header = () => {
   }
 
   useEffect(() => {
-    if(auth){
-      console.log('Logged User');
-    }else{
-      console.log('Unlogged User');
-    }
-  }, [auth])
-
-  useEffect(() => {
     if(!auth){
       getAuth();
     }

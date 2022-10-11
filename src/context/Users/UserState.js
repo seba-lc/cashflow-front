@@ -34,7 +34,7 @@ const UserState = ({ children }) => {
           payload: response.data
         });
         return errors; //lo devuelve vacio
-      }else if(response.status === 201){
+      }else if(response.status === 201 || response.status === 202){
         errors.data = 'Incorrect Credentials';
         dispatch({
           type: REMOVE_USER
